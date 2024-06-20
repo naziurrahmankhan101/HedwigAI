@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 
 const ConversationPage =() =>{
@@ -58,8 +59,14 @@ const ConversationPage =() =>{
                      </FormItem>
                     )}
                      />
-                        </form>
+                     <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
+                        Generate
+                     </Button>
+                    </form>
                     </Form>
+                </div>
+                <div className="space-y-4 mt-4">
+                    Messages Content
                 </div>
             </div>
         </div>
