@@ -3,6 +3,7 @@
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { 
     LayoutDashboard,
@@ -65,6 +66,7 @@ const routes= [
 ];
 
 const Sidebar = () => {
+    const pathname = usePathname();
     return (
         <div className="space-y-4 py-4 flex flex-col h-full
         bg-[#111827] text-white">
@@ -88,7 +90,12 @@ const Sidebar = () => {
                      href={route.href}
                      key={route.href}
               className={
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition"
+                cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                    pathname === route.href
+                  ? "text-white bg-white/10"
+                  : "text-zinc-400",
+                )
+                
                }
             >
               <div className="flex items-center flex-1">
